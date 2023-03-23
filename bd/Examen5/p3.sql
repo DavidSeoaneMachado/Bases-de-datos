@@ -1,3 +1,5 @@
-1 create table Asignatura (id serial Primary key, nombre TEXT);
+CREATE TABLE Asignatura (nombre VARCHAR(30) PRIMARY KEY);
 
-create table Matricula (dni TEXT, nombre TEXT, apellido1 TEXT, apellido2 TEXT, asignatura_id integer, foreign key (asignatura_id) references Asignatura (id));
+CREATE TABLE Alumnos (dni VARCHAR(20) PRIMARY KEY, nombre1 VARCHAR(15) NOT NULL, nombre2 VARCHAR(15), apellido1 VARCHAR(15) NOT NULL, apellido2 VARCHAR(15));
+
+CREATE TABLE Matricula (dni_alumno VARCHAR(20), nombre_asignatura VARCHAR(30), FOREIGN KEY (dni_alumno) REFERENCES Alumnos(dni), FOREIGN KEY (nombre_asignatura) REFERENCES Asignatura(nombre));

@@ -1,7 +1,7 @@
-1  create table Persona (id serial primary key, nombre text, dni text);
+create table Persona (id serial primary key, dni VARCHAR(15), nombre VARCHAR(15));
 
-create table foto (id serial primary key, titulo text); 
+create table foto (id serial primary key, titulo_foto VARCHAR(40)); 
 
-create table Monumento (id serial primary key, nombre text, ciudad text, antiguedad_monumento text);
+create table Monumento (nombre VARCHAR(15) primary key, ciudad VARCHAR(15), antiguedad_monumento VARCHAR(15));
 
-create table Recuerdos (id serial primary key, fecha date, id_foto int, id_persona int, id_monumento int, foreign key (id_foto) references foto (id), foreign key (id_persona) references Persona (id), foreign key (id_monumento) references Monumento (id));
+create table Recuerdos (fecha date not NULL, id_foto int, id_persona int, nombre_monumento VARCHAR(15), foreign key (id_foto) references foto (id), foreign key (id_persona) references Persona (id), foreign key (nombre_monumento) references Monumento (nombre));
