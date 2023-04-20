@@ -24,6 +24,9 @@ ALTER TABLE trips ALTER COLUMN start_station SET NOT NULL DEFAULT end_station;
 --Borra todos los registros que no tengan un valor conocido de birth_date?
 DELETE from trips where birth_date is null;
 
+--SI QUISIERAMOS ELIMINAR TAMBIEN LOS REGISTROS QUE CONTIENEN UN 0 USARIAMOS:
+DELETE from trips where birth_date = 0;
+
 --Actualizar los valores nulos de bike_number para que tengan el valor B00000
 update trips set bike_number = 'B00000' where bike_number is null;
 
